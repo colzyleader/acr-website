@@ -33,7 +33,9 @@ const HEADER_HTML = `
     </form>
 
     <div class="header-actions">
-      <a href="https://acrclothing-2.myshopify.com/account" class="icon-btn account-link" aria-label="Sign in" target="_blank" rel="noopener">
+      <!-- Shop Pay sign-in button (loads via Shopify CDN) -->
+      <shop-login-button client-id="" version="1" features="follow,sign-up" class="shop-login-button-header"></shop-login-button>
+      <a href="https://acrclothing-2.myshopify.com/account" class="icon-btn account-link" aria-label="Sign in" target="_blank" rel="noopener" title="Sign in to your account">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
           <circle cx="12" cy="8" r="4"/>
           <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
@@ -205,6 +207,15 @@ document.addEventListener('DOMContentLoaded', () => {
     s.src = 'https://static.klaviyo.com/onsite/js/X9z4X5/klaviyo.js';
     s.async = true;
     s.type = 'application/javascript';
+    document.head.appendChild(s);
+  })();
+
+  // ---- Shop Pay (sign in with Shop button) ----
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://shop.app/checkout-link/web-components.js';
+    s.async = true;
+    s.type = 'module';
     document.head.appendChild(s);
   })();
 

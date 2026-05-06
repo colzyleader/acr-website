@@ -2415,3 +2415,23 @@ html.dark .pdp-accordion { border-color: rgba(244,241,236,0.18); }
 }
 .shopify-buy__option-select-wrapper { margin-bottom: 16px !important; }
 .shopify-buy__btn { width: 100% !important; border: none !important; }
+
+/* Shop Pay sign-in button in header */
+.shop-login-button-header {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+}
+.shop-login-button-header::part(button),
+shop-login-button::part(button) {
+  height: 36px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+}
+
+/* Hide on mobile to avoid crowding the header */
+@media (max-width: 720px) {
+  .shop-login-button-header { display: none; }
+}
