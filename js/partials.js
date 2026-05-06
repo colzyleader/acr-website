@@ -219,17 +219,30 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(s);
   })();
 
-  // ---- Tidio Live Chat ----
-  // To activate: sign up free at tidio.com, get your public key, replace below
-  // Then uncomment this block.
-  /*
-  (function() {
-    var s = document.createElement('script');
-    s.src = '//code.tidio.co/YOUR_TIDIO_PUBLIC_KEY.js';
-    s.async = true;
-    document.head.appendChild(s);
+  // ---- Chatbase AI chat widget ----
+  (function(){
+    if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+      window.chatbase=(...arguments)=>{
+        if(!window.chatbase.q){window.chatbase.q=[]}
+        window.chatbase.q.push(arguments)
+      };
+      window.chatbase=new Proxy(window.chatbase,{
+        get(target,prop){
+          if(prop==="q"){return target.q}
+          return(...args)=>target(prop,...args)
+        }
+      })
+    }
+    const onLoad=function(){
+      const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="3ekVxGBHh5OY7YqXXmra0";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)
+    };
+    if(document.readyState==="complete"){onLoad()}
+    else{window.addEventListener("load",onLoad)}
   })();
-  */
 
   // ---- Dark mode init from localStorage ----
   try {
