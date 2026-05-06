@@ -240,29 +240,11 @@ function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
 }
 
-/* ---------- Newsletter popup (3s after load, once per session) ---------- */
+/* ---------- Newsletter popup (DISABLED — Klaviyo handles popup now) ---------- */
 function setupPopup() {
-  const popup = document.querySelector('.popup-overlay');
-  if (!popup) return;
-  if (sessionStorage.getItem('acr_popup_seen')) return;
-
-  setTimeout(() => {
-    popup.classList.add('open');
-  }, 4000);
-
-  popup.addEventListener('click', (e) => {
-    if (e.target === popup || e.target.closest('[data-popup-close]')) {
-      popup.classList.remove('open');
-      sessionStorage.setItem('acr_popup_seen', '1');
-    }
-  });
-
-  popup.querySelector('form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    popup.classList.remove('open');
-    sessionStorage.setItem('acr_popup_seen', '1');
-    toast('Welcome to ACR — check your inbox');
-  });
+  // Old fake popup disabled — Klaviyo's real popup handles signups now.
+  // The fake popup HTML is still in partials.js but we hide it via CSS.
+  return;
 }
 
 /* ---------- Mobile menu (placeholder simple toggle) ---------- */
@@ -285,7 +267,13 @@ document.addEventListener('submit', (e) => {
   const f = e.target;
   if (f.matches('.newsletter-form')) {
     e.preventDefault();
-    toast('Subscribed — first drop on the way');
+    const email = f.querySelector('input[type="email"]')?.value;
+    if (email && window._learnq) {
+      // Submit to Klaviyo (puts them on the popup's list, triggering welcome flow)
+      window._learnq.push(['identify', { '$email': email }]);
+      window._learnq.push(['track', 'Subscribed to Newsletter', { email: email }]);
+    }
+    toast('Subscribed — check your inbox for 10% off');
     f.reset();
   }
   if (f.matches('.promo')) {

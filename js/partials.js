@@ -33,6 +33,12 @@ const HEADER_HTML = `
     </form>
 
     <div class="header-actions">
+      <a href="https://shopify.com/76651340681/account" class="icon-btn account-link" aria-label="Sign in">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+      </a>
       <button class="icon-btn theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
         <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
           <circle cx="12" cy="12" r="4"/>
@@ -192,6 +198,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (page) {
     document.querySelectorAll(`.nav-item[data-nav="${page}"]`).forEach(el => el.classList.add('active'));
   }
+
+  // ---- Klaviyo (popup signup + tracking) ----
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://static.klaviyo.com/onsite/js/X9z4X5/klaviyo.js';
+    s.async = true;
+    s.type = 'application/javascript';
+    document.head.appendChild(s);
+  })();
 
   // ---- Tidio Live Chat ----
   // To activate: sign up free at tidio.com, get your public key, replace below
