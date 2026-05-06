@@ -2,12 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cart — ACR</title>
-  <meta http-equiv="refresh" content="0; url=product.html" />
-  <link rel="canonical" href="product.html" />
+  <meta name="description" content="Review your ACR selections and check out." />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
-  <p>Redirecting to your cart… <a href="product.html">Click here if not redirected.</a></p>
-  <script>window.location.replace('product.html');</script>
+<body data-page="cart">
+
+  <div data-include="header"></div>
+
+  <!-- ============== CART ============== -->
+  <main class="container cart-page">
+
+    <!-- Items column -->
+    <section>
+      <header style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px;">
+        <h1 style="font-family:var(--font-display);font-size:clamp(40px,6vw,72px);letter-spacing:-0.03em;line-height:0.95;font-weight:400;">
+          Your <em style="font-style:italic;font-weight:300;color:var(--accent);">cart</em>
+        </h1>
+        <a href="shop.html" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-60);border-bottom:1px solid var(--ink-20);padding-bottom:2px;">
+          Continue shopping
+        </a>
+      </header>
+
+      <div class="cart-list" data-cart-list>
+        <!-- populated by app.js / renderCartPage() -->
+      </div>
+    </section>
+
+    <!-- Summary column -->
+    <aside class="summary-card">
+      <h3>Order summary</h3>
+
+      <div class="promo">
+        <input type="text" placeholder="Promo code" id="promo-input" />
+        <button onclick="applyPromo()">Apply</button>
+      </div>
+
+      <div class="summary-rows" data-summary-rows>
+        <!-- populated by app.js -->
+      </div>
+
+      <div class="summary-total">
+        <span>Total</span>
+        <span data-summary-total>$0.00</span>
+      </div>
+
+      <button class="checkout-btn" onclick="checkout()">Checkout securely</button>
+
+      <p class="summary-foot">Free shipping over $75 · Easy 30-day returns</p>
+    </aside>
+
+  </main>
+
+  <div data-include="footer"></div>
+  <div data-include="drawer"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/partials.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function applyPromo() {
+      const v = document.getElementById('promo-input').value.trim();
+      if (!v) return;
+      toast(`Code "${v}" isn't valid right now`);
+    }
+    function checkout() {
+      if (!ACR.cart.length) { toast('Your cart is empty'); return; }
+      toast('This is a demo — checkout coming soon');
+    }
+  </script>
 </body>
 </html>
