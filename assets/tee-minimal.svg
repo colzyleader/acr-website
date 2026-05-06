@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="tee" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="0.5" stop-color="#121212"/>
+      <stop offset="1" stop-color="#080808"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg)"/>
+  <circle cx="300" cy="320" r="280" fill="#fff" opacity="0.18"/>
+  
+  <g transform="translate(300 380)">
+    <ellipse cx="0" cy="270" rx="180" ry="14" fill="#000" opacity="0.12"/>
+    <path d="M -150 -180 
+             L -90 -210
+             Q -45 -195 0 -195
+             Q 45 -195 90 -210
+             L 150 -180
+             L 195 -110
+             Q 198 -90 178 -85
+             L 145 -100
+             Q 140 30 152 250
+             L -152 250
+             Q -140 30 -145 -100
+             L -178 -85
+             Q -198 -90 -195 -110 Z" fill="url(#tee)"/>
+    <path d="M -50 -210 Q 0 -195 50 -210 Q 45 -180 0 -178 Q -45 -180 -50 -210 Z" fill="#050505"/>
+    <line x1="-145" y1="-100" x2="-152" y2="250" stroke="#050505" stroke-width="0.6" opacity="0.5"/>
+    <line x1="145" y1="-100" x2="152" y2="250" stroke="#050505" stroke-width="0.6" opacity="0.5"/>
+    
+        <g transform="translate(0 -50)">
+          <text x="0" y="0" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#f4f1ec" letter-spacing="3">ACR</text>
+          <circle cx="28" cy="-3" r="1.8" fill="#f4f1ec"/>
+        </g>
+    
+  </g>
+  
+  <text x="40" y="710" font-family="monospace" font-size="9" letter-spacing="2" fill="#f4f1ec" opacity="0.55">ACR / 100% COTTON</text>
+  <text x="560" y="710" text-anchor="end" font-family="monospace" font-size="9" letter-spacing="2" fill="#f4f1ec" opacity="0.55">MINIMAL ◦ BLACK</text>
+</svg>

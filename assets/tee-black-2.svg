@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="tee" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a2a2a"/>
+      <stop offset="0.5" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#0d0d0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg)"/>
+  <circle cx="300" cy="320" r="280" fill="#fff" opacity="0.18"/>
+  
+  <g transform="translate(300 380)">
+    <ellipse cx="0" cy="270" rx="180" ry="14" fill="#000" opacity="0.12"/>
+    <path d="M -175 -170 
+             L -110 -200
+             Q -55 -185 0 -185
+             Q 55 -185 110 -200
+             L 175 -170
+             L 220 -100
+             Q 223 -80 203 -75
+             L 165 -90
+             Q 160 50 175 280
+             L -175 280
+             Q -160 50 -165 -90
+             L -203 -75
+             Q -223 -80 -220 -100 Z" fill="url(#tee)"/>
+    <path d="M -50 -210 Q 0 -195 50 -210 Q 45 -180 0 -178 Q -45 -180 -50 -210 Z" fill="#080808"/>
+    <line x1="-165" y1="-90" x2="-175" y2="280" stroke="#080808" stroke-width="0.6" opacity="0.5"/>
+    <line x1="165" y1="-90" x2="175" y2="280" stroke="#080808" stroke-width="0.6" opacity="0.5"/>
+    
+        <g transform="translate(0 -40)">
+          <text x="0" y="0" text-anchor="middle" font-family="serif" font-size="11" font-weight="700" fill="#f4f1ec" letter-spacing="2.5">ACR</text>
+          <circle cx="22" cy="-2.5" r="1.4" fill="#f4f1ec"/>
+        </g>
+    
+  </g>
+  
+  <text x="40" y="710" font-family="monospace" font-size="9" letter-spacing="2" fill="#f4f1ec" opacity="0.55">ACR / 100% COTTON</text>
+  <text x="560" y="710" text-anchor="end" font-family="monospace" font-size="9" letter-spacing="2" fill="#f4f1ec" opacity="0.55">OVERSIZED ◦ INK</text>
+</svg>

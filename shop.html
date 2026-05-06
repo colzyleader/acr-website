@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — ACR</title>
+  <meta name="description" content="Shop the ACR Classic Cotton Tee. 100% cotton. Sizes S, M, L." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="tees">
+
+  <div data-include="header"></div>
+
+  <main class="container" style="padding: 60px 0 100px;">
+
+    <header class="reveal" style="text-align:center; max-width:720px; margin:0 auto 60px;">
+      <span class="eyebrow">— The collection</span>
+      <h1 style="font-family:var(--font-display); font-size:clamp(48px,7vw,96px); letter-spacing:-0.03em; line-height:0.95; font-weight:400; margin:16px 0 24px;">
+        One tee. <em style="font-style:italic; font-weight:300; color:var(--accent);">Done right.</em>
+      </h1>
+      <p style="font-size:17px; line-height:1.6; color:var(--ink-60);">
+        We make one thing — and we make it well. 100% cotton, classic fit, sizes small through large.
+      </p>
+    </header>
+
+    <div class="product-grid reveal" id="shop-grid" style="max-width: 480px; margin: 0 auto;"></div>
+
+  </main>
+
+  <div data-include="footer"></div>
+  <div data-include="drawer"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/partials.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Render the single product
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('shop-grid');
+      if (grid && window.PRODUCTS && window.renderProductCard) {
+        grid.innerHTML = window.PRODUCTS.map(p => window.renderProductCard(p)).join('');
+      }
+    });
+  </script>
+</body>
+</html>

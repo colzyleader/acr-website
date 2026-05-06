@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — ACR</title>
+  <meta name="description" content="Common questions about sizing, shipping, returns, and care for ACR cotton tees." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="legal">
+
+  <div data-include="header"></div>
+
+  <main class="faq-page">
+    <div class="legal-eyebrow">— Help center</div>
+    <h1 class="legal-title">Frequently Asked Questions</h1>
+    <p style="font-size:17px; line-height:1.6; color:var(--ink-60); max-width:600px; margin-top:16px;">
+      Everything you need to know about sizing, shipping, care, and more.
+    </p>
+
+    <div class="faq-list">
+
+      <details class="faq-item" open id="size-guide">
+        <summary>What size should I order?</summary>
+        <div class="answer">
+          <p>Our tee fits true to size. Here's our size chart — measurements are flat (lay tee on flat surface, measure across).</p>
+          <table class="size-table">
+            <thead>
+              <tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th><th>Best for</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>S</strong></td><td>19"</td><td>27.5"</td><td>Chest 36–38"</td></tr>
+              <tr><td><strong>M</strong></td><td>20.5"</td><td>28.5"</td><td>Chest 39–41"</td></tr>
+              <tr><td><strong>L</strong></td><td>22"</td><td>29.5"</td><td>Chest 42–44"</td></tr>
+            </tbody>
+          </table>
+          <p>If you're between sizes or prefer a relaxed fit, size up. If unsure, email us at <a href="mailto:hello@acrclothing.shop">hello@acrclothing.shop</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I care for my ACR tee?</summary>
+        <div class="answer">
+          <p>To keep your tee looking great:</p>
+          <ul>
+            <li>Machine wash cold with like colors</li>
+            <li>Tumble dry low or hang dry</li>
+            <li>Do not bleach</li>
+            <li>Iron inside out on low heat if needed</li>
+            <li>Wash inside out to preserve the chest logo</li>
+          </ul>
+          <p>Following these will help the tee soften with each wash and keep its shape for years.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the tee made of?</summary>
+        <div class="answer">
+          <p><strong>100% cotton.</strong> Mid-weight, soft hand, classic crew neck. We chose 100% cotton for breathability, comfort, and longevity. The small chest logo is screen-printed and built to last through hundreds of washes.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long does shipping take?</summary>
+        <div class="answer">
+          <p><strong>Standard shipping:</strong> 4–7 business days total (1–2 days processing + 3–5 days transit).<br/>
+          <strong>Expedited shipping:</strong> 3 business days total.</p>
+          <p>Free standard shipping on orders over $75. Every order includes tracking. Full details in our <a href="shipping.html">Shipping Policy</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I track my order?</summary>
+        <div class="answer">
+          <p>Yes — once your order ships, you'll get a confirmation email with a tracking number. You can also use the Shop app for real-time tracking and delivery notifications.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if it doesn't fit?</summary>
+        <div class="answer">
+          <p>No problem. We offer easy <strong>30-day returns and exchanges</strong> on unworn items. Email <a href="mailto:returns@acrclothing.shop">returns@acrclothing.shop</a> with your order number and we'll send return instructions within 24 hours. Full details in our <a href="refund.html">Refund Policy</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you ship internationally?</summary>
+        <div class="answer">
+          <p>Not yet. We currently ship across the United States only. International shipping is on the roadmap — <a href="index.html#newsletter">join our list</a> to be the first to know when it launches.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>When are you dropping new colors / styles?</summary>
+        <div class="answer">
+          <p>We're starting with one tee — done right — before adding more. New colors and styles are coming, but we don't have a fixed schedule yet. Subscribers and TikTok followers get first access to every drop.</p>
+          <p><a href="https://www.tiktok.com/@acrclothing" target="_blank" rel="noopener">Follow us on TikTok →</a></p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What payment methods do you accept?</summary>
+        <div class="answer">
+          <p>We accept all major credit and debit cards, plus Shop Pay, Apple Pay, and Google Pay. Checkout is secure and SSL-encrypted.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>I have another question — how do I contact you?</summary>
+        <div class="answer">
+          <p>Email <a href="mailto:hello@acrclothing.shop">hello@acrclothing.shop</a> and we'll respond within 1 business day. You can also use the chat icon in the bottom corner of any page during business hours.</p>
+        </div>
+      </details>
+
+    </div>
+  </main>
+
+  <div data-include="footer"></div>
+  <div data-include="drawer"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/partials.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Auto-open the matching FAQ if URL has #anchor
+    document.addEventListener('DOMContentLoaded', () => {
+      if (location.hash) {
+        const target = document.querySelector(location.hash);
+        if (target && target.tagName === 'DETAILS') {
+          target.open = true;
+          setTimeout(() => target.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

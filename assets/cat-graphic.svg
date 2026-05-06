@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f1ec"/>
+      <stop offset="1" stop-color="#d8d3c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#b)"/>
+  <g transform="translate(300 380)">
+    <ellipse cx="0" cy="270" rx="180" ry="12" fill="#000" opacity="0.12"/>
+    <path d="M -150 -180 L -90 -210 Q -45 -195 0 -195 Q 45 -195 90 -210 L 150 -180 L 195 -110 Q 198 -90 178 -85 L 145 -100 Q 140 30 152 250 L -152 250 Q -140 30 -145 -100 L -178 -85 Q -198 -90 -195 -110 Z" fill="#1a1a1a"/>
+    <path d="M -50 -210 Q 0 -195 50 -210 Q 45 -180 0 -178 Q -45 -180 -50 -210 Z" fill="#080808"/>
+    <text x="0" y="60" text-anchor="middle" font-family="serif" font-size="78" font-weight="700" fill="#c8341d" letter-spacing="-3">ACR</text>
+    <text x="0" y="90" text-anchor="middle" font-family="monospace" font-size="10" fill="#f4f1ec" opacity="0.7" letter-spacing="4">EVERYDAY WEAR</text>
+  </g>
+</svg>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACR Classic Cotton Tee — ACR</title>
+  <meta name="description" content="The ACR Classic Cotton Tee. 100% cotton. White. Sizes S, M, L. $24.99." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="tees">
+
+  <div data-include="header"></div>
+
+  <main class="container" style="padding: 60px 0 100px;" id="pdp-root">
+    <!-- rendered by JS -->
+  </main>
+
+  <div data-include="footer"></div>
+  <div data-include="drawer"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/partials.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || (window.PRODUCTS && window.PRODUCTS[0] && window.PRODUCTS[0].id);
+      const p = (window.PRODUCTS || []).find(x => x.id === id);
+      const root = document.getElementById('pdp-root');
+      if (!p || !root) {
+        if (root) root.innerHTML = '<p style="text-align:center;padding:80px 0;">Product not found.</p>';
+        return;
+      }
+
+      document.title = `${p.name} — ACR`;
+      const gallery = (p.gallery && p.gallery.length) ? p.gallery : [p.image];
+
+      root.innerHTML = `
+        <div class="pdp-grid">
+          <div class="pdp-gallery">
+            <div class="pdp-main-img" id="pdp-main-img" style="background-image:url('${gallery[0]}');"></div>
+            ${gallery.length > 1 ? `
+              <div class="pdp-thumbs">
+                ${gallery.map((src, i) => `
+                  <button class="pdp-thumb ${i === 0 ? 'active' : ''}" data-thumb-idx="${i}" style="background-image:url('${src}');" aria-label="View image ${i + 1}"></button>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="pdp-info">
+            <span class="eyebrow">— ${p.collection}</span>
+            <h1 class="pdp-title">${p.name}</h1>
+            <div class="pdp-price">${fmt(p.price)}</div>
+
+            <p class="pdp-desc">${p.description}</p>
+
+            <div class="pdp-section">
+              <div class="pdp-label">Color — <strong>${p.colors[0]}</strong></div>
+              <div class="color-swatches">
+                ${p.colors.map(c => `<button class="color-swatch active" data-color="${c}" title="${c}"></button>`).join('')}
+              </div>
+            </div>
+
+            <div class="pdp-actions" id="pdp-actions-shopify">
+              <!-- Shopify Buy Button (real checkout) renders here -->
+              <div id="acr-shopify-buy-btn"></div>
+            </div>
+
+            <div class="pdp-perks">
+              <div class="perk">
+                <strong>Free shipping</strong>
+                <span>On orders over $75</span>
+              </div>
+              <div class="perk">
+                <strong>30-day returns</strong>
+                <span>Easy and friendly</span>
+              </div>
+              <div class="perk">
+                <strong>Secure checkout</strong>
+                <span>SSL encrypted</span>
+              </div>
+            </div>
+
+            <details class="pdp-accordion" open>
+              <summary>Details</summary>
+              <ul>
+                <li>${p.material}</li>
+                <li>Classic fit, crew neck, short sleeve</li>
+                <li>Small ACR chest logo</li>
+                <li>Available in sizes ${p.sizes.join(', ')}</li>
+              </ul>
+            </details>
+
+            <details class="pdp-accordion">
+              <summary>Care</summary>
+              <ul>
+                <li>Machine wash cold with like colors</li>
+                <li>Tumble dry low</li>
+                <li>Do not bleach</li>
+                <li>Iron inside out if needed</li>
+              </ul>
+            </details>
+
+            <details class="pdp-accordion">
+              <summary>Shipping & Returns</summary>
+              <ul>
+                <li>Standard shipping: 3–5 business days</li>
+                <li>Free shipping on orders over $75</li>
+                <li>30-day returns on unworn items</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      `;
+
+      const mainImg = root.querySelector('#pdp-main-img');
+      root.querySelectorAll('[data-thumb-idx]').forEach(t => {
+        t.addEventListener('click', () => {
+          root.querySelectorAll('[data-thumb-idx]').forEach(b => b.classList.remove('active'));
+          t.classList.add('active');
+          mainImg.style.backgroundImage = `url('${gallery[+t.dataset.thumbIdx]}')`;
+        });
+      });
+    });
+  </script>
+
+  <!-- ============== SHOPIFY BUY BUTTON (real checkout) ============== -->
+  <script type="text/javascript">
+  /*<![CDATA[*/
+  (function () {
+    var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    if (window.ShopifyBuy) {
+      if (window.ShopifyBuy.UI) {
+        ShopifyBuyInit();
+      } else {
+        loadScript();
+      }
+    } else {
+      loadScript();
+    }
+    function loadScript() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = scriptURL;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+      script.onload = ShopifyBuyInit;
+    }
+    function ShopifyBuyInit() {
+      var client = ShopifyBuy.buildClient({
+        domain: 'fs7hbr-zy.myshopify.com',
+        storefrontAccessToken: 'de3cc58007415f58fa34dc1235bdf87b',
+      });
+      ShopifyBuy.UI.onReady(client).then(function (ui) {
+        ui.createComponent('product', {
+          id: '8586789519497',
+          node: document.getElementById('acr-shopify-buy-btn'),
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: {
+            "product": {
+              "iframe": false,
+              "contents": {
+                "img": false,
+                "title": false,
+                "price": false,
+                "description": false,
+                "options": true,
+                "quantity": false,
+                "button": true,
+                "buttonWithQuantity": false
+              },
+              "styles": {
+                "product": {
+                  "@media (min-width: 601px)": {
+                    "max-width": "100%",
+                    "margin-left": "0",
+                    "margin-bottom": "0"
+                  }
+                },
+                "button": {
+                  "font-family": "'Inter Tight', system-ui, sans-serif",
+                  "font-weight": "500",
+                  "font-size": "13px",
+                  "letter-spacing": "0.12em",
+                  "text-transform": "uppercase",
+                  "padding": "16px 24px",
+                  "background-color": "#0a0a0a",
+                  "border-radius": "999px",
+                  ":hover": { "background-color": "#c8341d" },
+                  ":focus": { "background-color": "#c8341d" }
+                },
+                "options": {
+                  "label": {
+                    "font-family": "'JetBrains Mono', monospace",
+                    "font-size": "11px",
+                    "letter-spacing": "0.16em",
+                    "text-transform": "uppercase",
+                    "color": "#0a0a0a"
+                  },
+                  "select": {
+                    "font-family": "'Inter Tight', system-ui, sans-serif",
+                    "font-size": "14px",
+                    "border": "1px solid rgba(10,10,10,0.18)",
+                    "border-radius": "2px",
+                    "padding": "12px 14px",
+                    "color": "#0a0a0a",
+                    "background-color": "#fff"
+                  }
+                }
+              },
+              "text": { "button": "Add to Cart" }
+            },
+            "productSet": {
+              "styles": { "products": { "@media (min-width: 601px)": { "margin-left": "0" } } }
+            },
+            "modalProduct": {
+              "contents": {
+                "img": false,
+                "imgWithCarousel": true,
+                "button": false,
+                "buttonWithQuantity": true
+              },
+              "styles": {
+                "product": {
+                  "@media (min-width: 601px)": {
+                    "max-width": "100%",
+                    "margin-left": "0",
+                    "margin-bottom": "0"
+                  }
+                },
+                "button": {
+                  "font-family": "'Inter Tight', system-ui, sans-serif",
+                  "font-weight": "500",
+                  "font-size": "13px",
+                  "letter-spacing": "0.12em",
+                  "text-transform": "uppercase",
+                  "background-color": "#0a0a0a",
+                  "border-radius": "999px",
+                  ":hover": { "background-color": "#c8341d" },
+                  ":focus": { "background-color": "#c8341d" }
+                }
+              },
+              "text": { "button": "Add to Cart" }
+            },
+            "option": {},
+            "cart": {
+              "styles": {
+                "button": {
+                  "font-family": "'Inter Tight', system-ui, sans-serif",
+                  "font-weight": "500",
+                  "letter-spacing": "0.12em",
+                  "text-transform": "uppercase",
+                  "background-color": "#0a0a0a",
+                  "border-radius": "999px",
+                  ":hover": { "background-color": "#c8341d" },
+                  ":focus": { "background-color": "#c8341d" }
+                }
+              },
+              "text": { "total": "Subtotal", "button": "Checkout" }
+            },
+            "toggle": {
+              "styles": {
+                "toggle": {
+                  "font-family": "'Inter Tight', system-ui, sans-serif",
+                  "font-weight": "500",
+                  "background-color": "#0a0a0a",
+                  ":hover": { "background-color": "#c8341d" },
+                  ":focus": { "background-color": "#c8341d" }
+                }
+              }
+            }
+          }
+        });
+      });
+    }
+  })();
+  /*]]>*/
+  </script>
+</body>
+</html>

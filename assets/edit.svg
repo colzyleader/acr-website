@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#161616"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.7" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#c8341d" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="fold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f1ec"/>
+      <stop offset="1" stop-color="#d8d3c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#b)"/>
+  <rect width="800" height="1000" fill="url(#r)"/>
+  
+  <!-- Folded shirt stack -->
+  <g transform="translate(150 350) rotate(-5)">
+    <rect x="0" y="0" width="500" height="100" rx="3" fill="url(#fold)"/>
+    <rect x="0" y="0" width="500" height="100" rx="3" fill="#0a0a0a" opacity="0.05"/>
+    <line x1="0" y1="50" x2="500" y2="50" stroke="#a09a90" stroke-width="0.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(180 470) rotate(2)">
+    <rect x="0" y="0" width="490" height="95" rx="3" fill="#1a1a1a"/>
+    <line x1="0" y1="48" x2="490" y2="48" stroke="#2a2a2a" stroke-width="0.5"/>
+    <text x="245" y="55" text-anchor="middle" font-family="serif" font-size="9" font-weight="600" fill="#c8341d" letter-spacing="2.5" opacity="0.8">ACR</text>
+  </g>
+  <g transform="translate(160 580) rotate(-3)">
+    <rect x="0" y="0" width="510" height="98" rx="3" fill="#3a342a"/>
+    <line x1="0" y1="49" x2="510" y2="49" stroke="#4a4438" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Decorative tag -->
+  <g transform="translate(540 280)">
+    <rect x="-30" y="-15" width="60" height="30" rx="4" fill="#f4f1ec" opacity="0.95"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="7" letter-spacing="1.5" fill="#0a0a0a">100% COTTON</text>
+  </g>
+  
+  <!-- Soft grain -->
+  <rect width="800" height="1000" fill="#fff" opacity="0.02"/>
+</svg>

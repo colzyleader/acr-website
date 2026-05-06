@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4ede0"/>
+      <stop offset="1" stop-color="#e8dfd0"/>
+    </linearGradient>
+    <linearGradient id="tee" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ede4d2"/>
+      <stop offset="0.5" stop-color="#e2d8c4"/>
+      <stop offset="1" stop-color="#d4c8b2"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg)"/>
+  <circle cx="300" cy="320" r="280" fill="#fff" opacity="0.18"/>
+  
+  <g transform="translate(300 380)">
+    <ellipse cx="0" cy="270" rx="180" ry="14" fill="#000" opacity="0.12"/>
+    <path d="M -160 -175 
+             L -100 -205
+             Q -50 -190 0 -190
+             Q 50 -190 100 -205
+             L 160 -175
+             L 205 -105
+             Q 208 -85 188 -80
+             L 152 -95
+             Q 145 40 162 260
+             L -162 260
+             Q -145 40 -152 -95
+             L -188 -80
+             Q -208 -85 -205 -105 Z" fill="url(#tee)"/>
+    <path d="M -50 -210 Q 0 -195 50 -210 Q 45 -180 0 -178 Q -45 -180 -50 -210 Z" fill="#bfb39c"/>
+    <line x1="-152" y1="-95" x2="-162" y2="260" stroke="#bfb39c" stroke-width="0.6" opacity="0.5"/>
+    <line x1="152" y1="-95" x2="162" y2="260" stroke="#bfb39c" stroke-width="0.6" opacity="0.5"/>
+    
+        <g transform="translate(0 -50)">
+          <text x="0" y="0" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#0a0a0a" letter-spacing="3">ACR</text>
+          <circle cx="28" cy="-3" r="1.8" fill="#0a0a0a"/>
+        </g>
+    
+  </g>
+  
+  <text x="40" y="710" font-family="monospace" font-size="9" letter-spacing="2" fill="#0a0a0a" opacity="0.6">ACR / 100% COTTON</text>
+  <text x="560" y="710" text-anchor="end" font-family="monospace" font-size="9" letter-spacing="2" fill="#0a0a0a" opacity="0.6">RELAXED ◦ CREAM</text>
+</svg>

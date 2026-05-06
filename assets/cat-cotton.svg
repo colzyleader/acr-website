@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#c8341d" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#b)"/>
+  <rect width="600" height="800" fill="url(#r)"/>
+  <g transform="translate(300 380)">
+    <ellipse cx="0" cy="270" rx="180" ry="12" fill="#000" opacity="0.4"/>
+    <path d="M -150 -180 L -90 -210 Q -45 -195 0 -195 Q 45 -195 90 -210 L 150 -180 L 195 -110 Q 198 -90 178 -85 L 145 -100 Q 140 30 152 250 L -152 250 Q -140 30 -145 -100 L -178 -85 Q -198 -90 -195 -110 Z" fill="#2a2a2a"/>
+    <path d="M -50 -210 Q 0 -195 50 -210 Q 45 -180 0 -178 Q -45 -180 -50 -210 Z" fill="#0a0a0a"/>
+    <text x="0" y="-50" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#c8341d" letter-spacing="3">ACR</text>
+  </g>
+</svg>
