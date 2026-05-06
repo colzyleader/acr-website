@@ -301,9 +301,9 @@ function renderProductCard(p) {
   ).join('');
   return `
     <article class="product-card" data-product-id="${p.id}">
-      <a href="product.html?id=${p.id}" class="product-card-img" style="background-image:url('${p.image}'); background-size:contain; background-repeat:no-repeat; background-position:center; background-color:#faf8f4;">
-        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
-        <button class="quick-add" data-quick-add="${p.id}" type="button">Add to Cart</button>
+      <a href="product.html?id=${p.id}" class="product-media">
+        <div class="product-media-img" style="background-image:url('${p.image}'); background-position:center top;"></div>
+        ${p.badge ? `<span class="product-tag accent">${p.badge}</span>` : ''}
       </a>
       <div class="product-card-body">
         <a href="product.html?id=${p.id}" class="product-card-name">${p.name}</a>
@@ -335,7 +335,22 @@ document.addEventListener('click', (e) => {
     const p = findProduct(id);
     if (p) addToCart(id, { size: p.sizes ? p.sizes[0] : 'M' });
   }
+
+  // Theme toggle
+  const tt = e.target.closest('[data-theme-toggle]');
+  if (tt) {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    try { localStorage.setItem('acr-theme', isDark ? 'dark' : 'light'); } catch(e) {}
+    syncThemeIcons();
+  }
 });
+
+function syncThemeIcons() {
+  const isDark = document.documentElement.classList.contains('dark');
+  document.querySelectorAll('.theme-icon-light').forEach(el => el.style.display = isDark ? 'none' : 'block');
+  document.querySelectorAll('.theme-icon-dark').forEach(el => el.style.display = isDark ? 'block' : 'none');
+}
 
 /* ---------- Init ---------- */
 document.addEventListener('DOMContentLoaded', () => {
@@ -343,4 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProductGrids();
   setupPopup();
   setupMobileMenu();
+  // give partials.js a beat to inject header before syncing icons
+  setTimeout(syncThemeIcons, 50);
 });
